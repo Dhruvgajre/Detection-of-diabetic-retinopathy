@@ -1,1 +1,325 @@
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" media="screen and (max-width: 1050px)">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo"
+          ><img src="{% static 'images/logo2.png' %}" alt=""
+        /></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="right hide-on-med-and-down">
+          <li><a href="">HOME</a></li>
+          <li><a href="#retinopathy">DIABETIC RETINOPATHY ?</a></li>
+          <li><a href="#about">ABOUT US</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+          <li>
+            <a href="http://127.0.0.1:8000/login/" class="waves-effect waves-light btn"
+          >Logout</a
+        >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <ul class="sidenav center" id="mobile-demo">
+      <li><a href="">HOME</a></li>
+      <li><a href="#retinopathy">DIABETIC RETINOPATHY ?</a></li>
+      <li><a href="#about">ABOUT US</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+      <li>
+        <a href="http://127.0.0.1:8000/login/" class="waves-effect waves-light btn"
+          >Logout</a
+        >
+      </li>
+    </ul>
+
+    <div class="topSection">
+      <div class="parallax-container">
+        <div class="parallax"><img src="{% static 'images/bg.jpg' %}" /></div>
+        <div class="test center-align">
+          <h1>Test Your Eye</h1>
+
+          {% comment %}
+          <button class="waves-effect waves-light btn-large">
+            <a href="signin.php">Upload image</a>
+          </button>
+          {% endcomment %}
+        </div>
+      </div>
+    </div>
+
+    <div class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 scrollspy def" id="retinopathy">
+            <h2>What is Diabetic Retinopathy</h2>
+            
+            <h5>
+              This eye disease is caused by high blood sugar and high blood
+              pressure: over time, this can damage the blood vessels in the back
+              of the eye.
+            </h5>
+            <p>
+              The disease usually affects both eyes, though one can be affected
+              more than the other, and is caused when a patient’s blood pressure
+              or blood sugar are too high. Over time, this can damage the blood
+              vessels that supply blood to the retina in the eye, which coverts
+              light into electrical signals and sends them to the brain. If the
+              retina doesn’t get the blood it needs, it can’t work properly,
+              meaning vision is affected. It can eventually cause permanent
+              blindness.
+            </p>
+            <p>
+              The disease is progressive: at first, the blood vessels start to
+              leak and eventually cause bleeding inside the eyes. There are
+              three stages of retinopathy that mainly affect the central part of
+              the retina and can cause permanent blindness, while a different
+              type of the disease, called maculopathy, affects the middle of the
+              eye.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "container">
+        <h1 style="text-align: center;font-family: 'Raleway', sans-serif;font-size:60px;
+        " class="mt-5 mb-5"><span style="font-weight: bold;" >Test Here</span></b></h1>  
+        <div class="row mt-5">
+            <div class="col-md-6 mt-3">
+                <img src="https://cdn-b.medlife.com/2020/01/diabetic-retinopathy1.png" id="banner" alt=""
+                     style="width: 100px " >
+            </div>
+            <div class="col-md-6 mt-5">
+                <div class="card p-4 hoverable">
+                    <div class="card-header">
+                        <h5 style="text-align: center;font-weight: bold;font-family: 'Raleway', sans-serif;
+    " id="title">Upload Image below</h5>
+                    </div>
+                    <div class="card-body" style="align-items: relative; margin-left: 31%">
+                        <div class="row">
+                            <div class="buttons" >
+                                <button class="btn btn-indigo"><input type="file" id="image"/></button>
+                                <button class="btn btn-indigo" id="process">Test <i class="fas fa-cloud-upload-alt"></i>
+                                </button>
+                                {% comment %} <a href = "" class="btn btn-indigo">Reset</a> <i class="fas fa-cloud-upload-alt"></i> {% endcomment %}
+                                
+                            </div>
+                            
+                            </div> 
+                            <div class="result" style="display: none;margin-left: 10%">
+                                <p style="font-weight: bold;font-size: 24px;color: #3f51b5;" id="disease"></p>
+                                <p style="font-weight: bold;font-size: 24px;color: #3f51b5;" id="accuracy"></p>
+                                <p>
+                                    <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                                       aria-controls="collapseExample">
+                                        View Graph <i class="fas fa-angle-down"></i>
+                                    </a>
+                                    <a href="/" class="ml-5">
+                                        Try again <i class="fas fa-sync"></i>
+                                    </a>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        <img id="graph" style="width: fit-content; ">
+                                    </div>
+                                </div>
+                            </div>
+                            <a href = "" class="btn btn-indigo">Reset</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div>
+
+    </div>
+</div>
+
+    <div class="logo">
+      <div class="parallax-container">
+        <div class="parallax">
+          <img src="{% static 'images/eyecare.png' %}" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 scrollspy" id="about">
+            <h2>About us</h2>
+            <p>
+                Welcome to our medical image testing website, created by a team of passionate college students with a strong background in Python programming and an interest in the healthcare industry.
+
+                Our mission is to provide a platform that allows medical professionals to accurately and efficiently test and analyze medical images, for an early diagnosis of Diabetic Retinopathy. We understand the importance of accurate medical imaging and the critical role it plays in patient care.
+                
+                Our team consists of students from Electronics and Telecommunications background, and includes some individuals from the field of medicine. We have combined our knowledge and skills to develop an innovative platform that utilizes advanced machine learning algorithms to analyze medical images and provide accurate results.
+                
+                Our website is designed to be user-friendly, with a simple and intuitive interface that allows medical professionals to easily upload their medical images and obtain results within seconds. We have incorporated advanced image processing techniques, such as segmentation and feature extraction, to ensure that our platform provides accurate and reliable results.
+                
+                At our medical image testing website, we are committed to advancing healthcare technology and improving patient outcomes. We believe that our platform can play an important role in achieving these goals, and we are excited to be at the forefront of this exciting field.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div class="container">
+        <div class="row scrollspy" id="contact">
+          <div class="col s12 l4">
+            <h3>Address</h3>
+            <p><i class="material-icons">location_on</i>: Mumbai, Maharashtra</p>
+            <p><i class="material-icons">email</i>: eyecare@gmail.com</p>
+            <p><i class="material-icons">call</i>: +91 9725376582</p>
+          </div>
+          <div class="col s12 l8">
+            <form class="col s12" action = "mailto:eyecare@gmail.com" method = "get">
+              <h3>Quick Messages / Feedback</h3>
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate" />
+                  <label for="icon_prefix">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">phone</i>
+                  <input id="icon_telephone" type="tel" class="validate" />
+                  <label for="icon_telephone">Telephone</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">email</i>
+                  <input id="email" type="email" class="validate" />
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">mode_edit</i>
+                  <textarea
+                    id="icon_prefix2"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label for="icon_prefix2">Message</label>
+                </div>
+              </div>
+              <input type="submit" class="btn btn-indigo" value="Send">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 l6">
+            
+          <div class="col s12 l6">
+            <div class="socialMedia">
+              <a href="#"><i class="fab fa-facebook-square"></i></a>
+              <a href="#"><i class="fab fa-twitter-square"></i></a>
+              <a href="#"><i class="fab fa-google-plus-square"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container center">© 2023 Copyright Text</div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var elems = document.querySelectorAll(".sidenav");
+        var instances = M.Sidenav.init(elems, options);
+      });
+
+      // Or with jQuery
+
+      $(document).ready(function () {
+        $(".sidenav").sidenav();
+        $(".scrollspy").scrollSpy();
+        $(".parallax").parallax();
+      });
+
+      $(document).ready(() => {
+        $("input[id='image']").on("change", function (event) {
+          let input = this;
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $("#banner").css("width", "350px");
+            $("#banner").addClass("img-thumbnail");
+            $("#banner").attr("src", e.target.result);
+          };
+          reader.readAsDataURL(input.files[0]);
+        });
+
+        $("#process").click(() => {
+          $(".buttons").hide();
+          $(".loader").show();
+          $("#title").html("Processing...");
+          let image = $("#image").prop("files")[0];
+          var data = image["name"];
+
+          console.log(data);
+          $.ajax({
+            url: "http://127.0.0.1:8000/api/",
+            type: "POST",
+            dataType: "json",
+            data: {
+              image: data,
+              csrfmiddlewaretoken: "{{ csrf_token }}",
+            },
+            error: function (xhr) {
+              //alert("Error while processing "+
+              //  xhr.responseText);
+              $(".loader").hide();
+              $("#title").html(xhr.responseText);
+            },
+            success: function (xhr) {
+              $("#title").html("Result");
+              let result = xhr.responseText.split("-");
+              let disease = result[0];
+              let accuracy = result[1];
+              $(".loader").hide();
+              $("#disease").html("Result: " + disease);
+              $("#accuracy").html(
+                "Accuracy: " + parseInt(accuracy).toFixed(2) + "%"
+              );
+              $("#graph").attr("src", '{% static "graph.png" %}');
+              $(".result").show();
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
